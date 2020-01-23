@@ -9,6 +9,10 @@ After an upgrade of the addon the pages must be reloaded before the new attribut
 After upgrade to version 1.0.0 check existing rules because some properties are changed.
 
 ## Release notes ##
+1.0.1
+ * Add Sunrise Offset Minutes and Sunset Offset Minutes config which if set generates a Sunrise/Sunset event offset from the actual        Sunrise/Sunset event.
+ * When creating rules simply Select your offset event i.e. Event "Sunset -n mins"
+ 
 1.0.0
  * Check Known Bugs below
  * Added event 'Sunset'/'Sunrise'

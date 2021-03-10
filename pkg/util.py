@@ -66,7 +66,7 @@ class DT():
         return self.now().minute
 
     def compute_azel(self):
-        if (self.is_even_minute() and self.computetoggle == 0) or
+        if (self.is_even_minute() and self.computetoggle == 0) or\
             (self.is_even_minute() is False and self.computetoggle == 1):
                 self.computetoggle = 1 - self.computetoggle
                 observer_today = self.get_observer()
@@ -112,7 +112,7 @@ class DT():
         self.iix += 1
         if self.iix > 240:
             logging.debug('%s will happen in %s at %s', log_txt, diff,
-                                time_to_check)
+                          time_to_check)
         if self.iix > 241:
             self.iix = 0
         if diff < datetime.timedelta(minutes=1):
@@ -125,14 +125,14 @@ class DT():
         sunrise = observer_today.next_rising(ephem.Sun())
         sunrise_local = self.to_localtime(sunrise.datetime())
         logging.info('CALC_SUNRISE tdy.utc: %s sunrise: %s sunrise_local: %s',
-                        observer_today.date, sunrise, sunrise_local)
+                     observer_today.date, sunrise, sunrise_local)
         logging.debug('DTSRISE lat: %s lng: %s observer_today: %s',
-                        self.lat, self.lng, observer_today)
+                      self.lat, self.lng, observer_today)
         observer_today.date = ephem.Date(observer_today.date - 24*ephem.hour)
         sunrise = observer_today.next_rising(ephem.Sun())
         self.last_sunrise = self.to_localtime(sunrise.datetime())
         logging.debug('LAST_SUNRISE old.utc: %s sunrise: %s last_sunrise: %s',
-                        observer_today.date, sunrise, self.last_sunrise)
+                      observer_today.date, sunrise, self.last_sunrise)
         return sunrise_local
 
     def sunrise(self):
@@ -146,14 +146,14 @@ class DT():
         sunset = observer_today.next_setting(ephem.Sun())
         sunset_local = self.to_localtime(sunset.datetime())
         logging.info('CALC_SUNSET today.utc: %s sunset: %s sunset_local: %s',
-                        observer_today.date, sunset, sunset_local)
+                     observer_today.date, sunset, sunset_local)
         logging.debug('DTSET lat: %s lng: %s observer_today: %s',
-                        self.lat, self.lng, observer_today)
+                      self.lat, self.lng, observer_today)
         observer_today.date = ephem.Date(observer_today.date - 24*ephem.hour)
         sunset = observer_today.next_setting(ephem.Sun())
         self.last_sunset = self.to_localtime(sunset.datetime())
         logging.debug('LAST_SUNSET old.utc: %s sunset: %s last_sunset: %s',
-                        observer_today.date, sunset, self.last_sunset)
+                      observer_today.date, sunset, self.last_sunset)
         return sunset_local
 
     def sunset(self):

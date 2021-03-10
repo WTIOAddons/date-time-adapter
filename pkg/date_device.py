@@ -85,13 +85,13 @@ class DateTimeDevice(DTDevice):
         else:
             self.sunrise_offset_mins = 0
         self.sunset_offset_active = False  # let it trigger, if < 0
-        if (self.sunset_offset_mins is not None and
-            self.sunset_offset_mins > 0):
-                self.sunset_offset_active = True  # wait for sunset to trigger
+        if self.sunset_offset_mins is not None and \
+           self.sunset_offset_mins > 0:
+            self.sunset_offset_active = True  # wait for sunset to trigger
         self.sunrise_offset_active = False
-        if (self.sunrise_offset_mins is not None and
-            self.sunrise_offset_mins > 0):
-                self.sunrise_offset_active = True
+        if self.sunrise_offset_mins is not None and \
+           self.sunrise_offset_mins > 0:
+            self.sunrise_offset_active = True
 
         logging.info('sunset: %s sunrise: %s', self.sunset, self.sunrise)
 

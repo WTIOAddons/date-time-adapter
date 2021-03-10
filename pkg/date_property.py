@@ -307,15 +307,14 @@ class DTLastEventProperty(DateTimeProperty):
     """Last event integer property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'last_event',
-                                        {'title': 'Last event',
-                                            'label': 'Last event',
-                                            '@type': 'LevelProperty',
-                                            'type': 'integer',
-                                            'unit': 'minute',
-                                            'readOnly': True,
-                                            'minimum': 0,
-                                            'maximum': 1440})
+                                  'last_event', {'title': 'Last event',
+                                                 'label': 'Last event',
+                                                 '@type': 'LevelProperty',
+                                                 'type': 'integer',
+                                                 'unit': 'minute',
+                                                 'readOnly': True,
+                                                 'minimum': 0,
+                                                 'maximum': 1440})
         self.dt = dt
 
     def get_new_value(self):

@@ -87,11 +87,11 @@ class DateTimeDevice(DTDevice):
         self.sunset_offset_active = False  # let it trigger, if < 0
         if (self.sunset_offset_mins is not None and
             self.sunset_offset_mins > 0):
-            self.sunset_offset_active = True  # wait for sunset to trigger
+                self.sunset_offset_active = True  # wait for sunset to trigger
         self.sunrise_offset_active = False
         if (self.sunrise_offset_mins is not None and
             self.sunrise_offset_mins > 0):
-            self.sunrise_offset_active = True
+                self.sunrise_offset_active = True
 
         logging.info('sunset: %s sunrise: %s', self.sunset, self.sunrise)
 
@@ -123,7 +123,7 @@ class DateTimeDevice(DTDevice):
         })
 
         if self.sunset_offset_mins is not None and \
-            self.sunset_offset_mins != 0:
+           self.sunset_offset_mins != 0:
             title = 'Sunset offset ' + str(self.sunset_offset_mins) +\
                 ' mins'
             self.add_event('sunset_offset', {
@@ -133,7 +133,7 @@ class DateTimeDevice(DTDevice):
             })
 
         if self.sunrise_offset_mins is not None and \
-            self.sunrise_offset_mins != 0:
+           self.sunrise_offset_mins != 0:
             title = 'Sunrise offset ' + str(self.sunrise_offset_mins) +\
                 ' mins'
             self.add_event('sunrise_offset', {
@@ -167,7 +167,7 @@ class DateTimeDevice(DTDevice):
 
     def check_offset_sunrise(self):
         if self.sunrise_offset_mins is not None and \
-            self.sunrise_offset_active is False:
+           self.sunrise_offset_active is False:
             offset_sunrise = None
             if self.sunrise_offset_mins < 0:  # before sunrise
                 offset_sunrise = self.sunrise - \
@@ -183,7 +183,7 @@ class DateTimeDevice(DTDevice):
 
     def check_offset_sunset(self):
         if self.sunset_offset_mins is not None and \
-            self.sunset_offset_active is False:
+           self.sunset_offset_active is False:
             offset_sunset = None
             if self.sunset_offset_mins < 0:
                 offset_sunset = self.sunset - \

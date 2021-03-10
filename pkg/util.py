@@ -69,11 +69,11 @@ class DT():
         if (self.is_even_minute() and
             self.computetoggle == 0) or (self.is_even_minute() is False and
                                          self.computetoggle == 1):
-                self.computetoggle = 1 - self.computetoggle
-                observer_today = self.get_observer()
-                s = ephem.Sun(observer_today)
-                self.azimuth = s.az.znorm * 180 / math.pi
-                self.elevation = s.alt.znorm * 180 / math.pi
+            self.computetoggle = 1 - self.computetoggle
+            observer_today = self.get_observer()
+            s = ephem.Sun(observer_today)
+            self.azimuth = s.az.znorm * 180 / math.pi
+            self.elevation = s.alt.znorm * 180 / math.pi
 
     def get_azimuth(self):
         self.compute_azel()

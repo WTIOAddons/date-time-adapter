@@ -66,8 +66,9 @@ class DT():
         return self.now().minute
 
     def compute_azel(self):
-        if (self.is_even_minute() and self.computetoggle == 0) or\
-            (self.is_even_minute() is False and self.computetoggle == 1):
+        if (self.is_even_minute() and
+            self.computetoggle == 0) or (self.is_even_minute() is False and
+                                         self.computetoggle == 1):
                 self.computetoggle = 1 - self.computetoggle
                 observer_today = self.get_observer()
                 s = ephem.Sun(observer_today)

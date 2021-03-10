@@ -73,7 +73,7 @@ class DateTimeDevice(DTDevice):
         self._context = 'https://WebThings.io/schemas'
         self._type = ['BinarySensor', 'MultiLevelSensor']
         self.dt = DT(_config.timezone, _config.lat, _config.lng,
-                        _config.horizon)
+                     _config.horizon)
         self.sunrise = self.dt.calc_sunrise()
         self.sunset = self.dt.calc_sunset()
         if _config.sunset_offset_mins is not None:
@@ -87,11 +87,11 @@ class DateTimeDevice(DTDevice):
         self.sunset_offset_active = False  # let it trigger, if < 0
         if (self.sunset_offset_mins is not None and
             self.sunset_offset_mins > 0):
-                self.sunset_offset_active = True  # wait for sunset to trigger
+            self.sunset_offset_active = True  # wait for sunset to trigger
         self.sunrise_offset_active = False
         if (self.sunrise_offset_mins is not None and
             self.sunrise_offset_mins > 0):
-                self.sunrise_offset_active = True
+            self.sunrise_offset_active = True
 
         logging.info('sunset: %s sunrise: %s', self.sunset, self.sunrise)
 
@@ -124,23 +124,23 @@ class DateTimeDevice(DTDevice):
 
         if self.sunset_offset_mins is not None and \
             self.sunset_offset_mins != 0:
-                title = 'Sunset offset ' + str(self.sunset_offset_mins) +\
-                    ' mins'
-                self.add_event('sunset_offset', {
-                    'title': title, 'label': 'Sunset_Offset',
-                    'description': 'An event for new offset sunset',
-                    'type': 'string',
-                })
+            title = 'Sunset offset ' + str(self.sunset_offset_mins) +\
+                ' mins'
+            self.add_event('sunset_offset', {
+                'title': title, 'label': 'Sunset_Offset',
+                'description': 'An event for new offset sunset',
+                'type': 'string',
+            })
 
         if self.sunrise_offset_mins is not None and \
             self.sunrise_offset_mins != 0:
-                title = 'Sunrise offset ' + str(self.sunrise_offset_mins) +\
-                    ' mins'
-                self.add_event('sunrise_offset', {
-                    'title': title, 'label': 'Sunrise_Offset',
-                    'description': 'An event for new offset sunrise',
-                    'type': 'string',
-                })
+            title = 'Sunrise offset ' + str(self.sunrise_offset_mins) +\
+                ' mins'
+            self.add_event('sunrise_offset', {
+                'title': title, 'label': 'Sunrise_Offset',
+                'description': 'An event for new offset sunrise',
+                'type': 'string',
+            })
 
         self.name = 'DateTime'
         self.description = 'DateTime desc'
@@ -168,39 +168,39 @@ class DateTimeDevice(DTDevice):
     def check_offset_sunrise(self):
         if self.sunrise_offset_mins is not None and \
             self.sunrise_offset_active is False:
-                offset_sunrise = None
-                if self.sunrise_offset_mins < 0:  # before sunrise
-                    offset_sunrise = self.sunrise - \
-                        datetime.timedelta(minutes=-self.sunrise_offset_mins)
-                if self.sunrise_offset_mins > 0:  # after sunrise
-                    offset_sunrise = self.dt.last_sunrise + \
-                        datetime.timedelta(minutes=self.sunrise_offset_mins)
+            offset_sunrise = None
+            if self.sunrise_offset_mins < 0:  # before sunrise
+                offset_sunrise = self.sunrise - \
+                    datetime.timedelta(minutes=-self.sunrise_offset_mins)
+            if self.sunrise_offset_mins > 0:  # after sunrise
+                offset_sunrise = self.dt.last_sunrise + \
+                    datetime.timedelta(minutes=self.sunrise_offset_mins)
 
-                if offset_sunrise is not None:
-                    if self.dt.now() > offset_sunrise:
-                        self.check_send_event(self.sunrise, 'sunrise_offset')
-                        self.sunrise_offset_active = True
+            if offset_sunrise is not None:
+                if self.dt.now() > offset_sunrise:
+                    self.check_send_event(self.sunrise, 'sunrise_offset')
+                    self.sunrise_offset_active = True
 
     def check_offset_sunset(self):
         if self.sunset_offset_mins is not None and \
             self.sunset_offset_active is False:
-                offset_sunset = None
-                if self.sunset_offset_mins < 0:
-                    offset_sunset = self.sunset - \
-                        datetime.timedelta(minutes=-self.sunset_offset_mins)
-                if self.sunset_offset_mins > 0:
-                    offset_sunset = self.dt.last_sunset + \
-                        datetime.timedelta(minutes=self.sunset_offset_mins)
-                if offset_sunset is not None:
-                    if self.dt.now() > offset_sunset:
-                        self.check_send_event(self.sunset, 'sunset_offset')
-                        self.sunset_offset_active = True
+            offset_sunset = None
+            if self.sunset_offset_mins < 0:
+                offset_sunset = self.sunset - \
+                    datetime.timedelta(minutes=-self.sunset_offset_mins)
+            if self.sunset_offset_mins > 0:
+                offset_sunset = self.dt.last_sunset + \
+                    datetime.timedelta(minutes=self.sunset_offset_mins)
+            if offset_sunset is not None:
+                if self.dt.now() > offset_sunset:
+                    self.check_send_event(self.sunset, 'sunset_offset')
+                    self.sunset_offset_active = True
 
     """ Check if the sunset/sunrise time occured and if so send event """
     def check_send_event(self, next_sunset_sunrise, event_name):
         logging.info('now:%s > next:%s', self.dt.now(), next_sunset_sunrise)
         event = Event(self, event_name, event_name + ': ' +
-                        str(next_sunset_sunrise))
+                      str(next_sunset_sunrise))
         self.event_notify(event)
         logging.info('New event ' + event_name)
 
@@ -216,8 +216,8 @@ class DateTimeTestDevice(DTDevice):
         self._context = 'https://webthings.io/schemas'
         self._type = ['BinarySensor', 'MultiLevelSensor']
         self.dt = DT(_config.timezone, _config.lat, _config.lng,
-                        _config.horizon, _config.sunset_offset_mins,
-                        _config.sunrise_offset_mins)
+                     _config.horizon, _config.sunset_offset_mins,
+                     _config.sunrise_offset_mins)
 
         self.add_property(DTMinuteProperty(self, self.dt))
 

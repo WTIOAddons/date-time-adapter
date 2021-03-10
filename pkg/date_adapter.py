@@ -37,12 +37,12 @@ class DateTimeAdapter(Adapter):
         dev_id = 'DateTimeDevice'
         if self.get_device(dev_id) is None:
             self.handle_device_added(DateTimeDevice(self, dev_id,
-                                                        self._config))
+                                                    self._config))
         else:
             logging.info('Device: %s was already created', dev_id)
         # dev_id = 'DateTimeTestDevice'
         # if self.get_device(dev_id) is None:
-        #    self.handle_device_added(DateTimeTestDevice(self, dev_id, 
+        #    self.handle_device_added(DateTimeTestDevice(self, dev_id,
         #                                 self._config))
         # else:
         #    logging.info('Device: %s was already created', dev_id)
@@ -68,11 +68,11 @@ class DateTimeAdapter(Adapter):
 
     def handle_device_removed(self, device):
         logging.info('Device to be removed name: %s is_alive: %s',
-                        device.name, device.thread.is_alive())
+                     device.name, device.thread.is_alive())
         device.active_poll = False
         device.thread.join(20.0)
         logging.info('Device id: %s is_alive: %s', device.id,
-                        device.thread.is_alive())
+                     device.thread.is_alive())
         super().handle_device_removed(device)
         logging.info('device:' + device.name + ' is removed. Device ' +
-                        device.id)
+                     device.id)

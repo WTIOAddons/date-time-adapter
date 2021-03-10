@@ -26,6 +26,8 @@ class Config(Database):
             self.lng = config['lng']
             self.horizon = config['horizon']
             self.log_level = config['log_level']
+            self.sunset_offset_mins = 0
+            self.sunrise_offset_mins = 0
             self.sunset_offset_mins = config['sunset_offset_mins']
             self.sunrise_offset_mins = config['sunrise_offset_mins']
         except Exception as ex:

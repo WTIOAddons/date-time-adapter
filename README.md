@@ -9,7 +9,7 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
-1.0.7
+1.0.8
  * Implemented cross compile steps
  * Added Year/Month/Day properties
  * Fixed bug with install on top of version 1.0.1 (config)

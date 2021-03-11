@@ -34,20 +34,20 @@ def cleanup(signum, frame):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=10,
-                        format="%(filename)s:%(lineno)s "+\
+    logging.basicConfig(level = 10,
+                        format = "%(filename)s:%(lineno)s " +
                             "%(levelname)s %(message)s",
-                        stream=sys.stdout)
+                        stream = sys.stdout)
     logging.info('Starting DateTime Addon')
     if gateway_addon.API_VERSION < _API_VERSION['min'] or \
             gateway_addon.API_VERSION > _API_VERSION['max']:
         logging.error('Unsupported API version. ver: %s',
-                        gateway_addon.API_VERSION)
+                      gateway_addon.API_VERSION)
         sys.exit(0)
 
     try:
         logging.info('Start date-time-adapter. gateway_addon.API_VERSION: %s',
-                        gateway_addon.API_VERSION)
+                     gateway_addon.API_VERSION)
         logging.debug('Arguments list: %s', str(sys.argv))
         signal.signal(signal.SIGINT, cleanup)
         signal.signal(signal.SIGTERM, cleanup)
@@ -60,6 +60,6 @@ if __name__ == '__main__':
         print(ex)
         print(ex.args)
         print(traceback.format_exception(None,  # <- type(e) by docs but ignore
-                                            ex, ex.__traceback__),
-                file=sys.stdout)
+                                         ex, ex.__traceback__),
+              file=sys.stdout)
     logging.info('STOPPED DateTime Addon')

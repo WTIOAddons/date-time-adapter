@@ -63,13 +63,13 @@ class DTMinuteProperty(DateTimeProperty):
     """Minutes integer property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'minute', {'title': 'Minute',
-                                                'label': 'Minute',
-                                                '@type': 'LevelProperty',
-                                                'type': 'integer',
-                                                'unit': 'minute',
-                                                'readOnly': True,
-                                                'minimum': 0, 'maximum': 59})
+                                  'minute', {'title': 'Minute',
+                                             'label': 'Minute',
+                                             '@type': 'LevelProperty',
+                                             'type': 'integer',
+                                             'unit': 'minute',
+                                             'readOnly': True,
+                                             'minimum': 0, 'maximum': 59})
         self.dt = dt
 
     def get_new_value(self):
@@ -80,14 +80,14 @@ class DTHourProperty(DateTimeProperty):
     """Hour integer property type."""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'hour', {'title': 'Hour',
-                                                'label': 'Hour',
-                                                '@type': 'LevelProperty',
-                                                'type': 'integer',
-                                                'unit': 'hour',
-                                                'readOnly': True,
-                                                'minimum': 0,
-                                                'maximum': 23})
+                                  'hour', {'title': 'Hour',
+                                           'label': 'Hour',
+                                           '@type': 'LevelProperty',
+                                           'type': 'integer',
+                                           'unit': 'hour',
+                                           'readOnly': True,
+                                           'minimum': 0,
+                                           'maximum': 23})
         self.dt = dt
 
     def get_new_value(self):
@@ -98,11 +98,11 @@ class DTDayProperty(DateTimeProperty):
     """Day integer property type."""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'day', {'title': 'Day', 'label': 'Day',
-                                            '@type': 'LevelProperty',
-                                            'type': 'integer', 'unit': 'day',
-                                            'readOnly': True, 'minimum': 1,
-                                            'maximum': 31})
+                                  'day', {'title': 'Day', 'label': 'Day',
+                                          '@type': 'LevelProperty',
+                                          'type': 'integer', 'unit': 'day',
+                                          'readOnly': True, 'minimum': 1,
+                                          'maximum': 31})
         self.dt = dt
 
     def get_new_value(self):
@@ -113,13 +113,13 @@ class DTMonthProperty(DateTimeProperty):
     """Month integer property type."""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'month', {'title': 'Month',
-                                                'label': 'Month',
-                                                '@type': 'LevelProperty',
-                                                'type': 'integer',
-                                                'unit': 'month',
-                                                'readOnly': True,
-                                                'minimum': 1, 'maximum': 12})
+                                  'month', {'title': 'Month',
+                                            'label': 'Month',
+                                            '@type': 'LevelProperty',
+                                            'type': 'integer',
+                                            'unit': 'month',
+                                            'readOnly': True,
+                                            'minimum': 1, 'maximum': 12})
         self.dt = dt
 
     def get_new_value(self):
@@ -130,13 +130,13 @@ class DTYearProperty(DateTimeProperty):
     """Year integer property type."""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'year', {'title': 'Year', 'label': 'Year',
-                                                '@type': 'LevelProperty',
-                                                'type': 'integer',
-                                                'unit': 'year',
-                                                'readOnly': True,
-                                                'minimum': 2000,
-                                                'maximum': 3000})
+                                  'year', {'title': 'Year', 'label': 'Year',
+                                           '@type': 'LevelProperty',
+                                           'type': 'integer',
+                                           'unit': 'year',
+                                           'readOnly': True,
+                                           'minimum': 2000,
+                                           'maximum': 3000})
         self.dt = dt
 
     def get_new_value(self):
@@ -147,17 +147,16 @@ class DTFiveMinutesProperty(DateTimeProperty):
     """Five minutes property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'minutes5', {'title': '5 minutes',
-                                                    'label': '5 minutes',
-                                                    'type': 'string',
-                                                    'unit': 'minute',
-                                                    'enum': ['0', '5', '10',
-                                                                '15', '20',
-                                                                '25', '30',
-                                                                '35', '40',
-                                                                '45', '50',
-                                                                '55'],
-                                        'readOnly': True})
+                                  'minutes5', {'title': '5 minutes',
+                                               'label': '5 minutes',
+                                               'type': 'string',
+                                               'unit': 'minute',
+                                               'enum': ['0', '5', '10',
+                                                        '15', '20',
+                                                        '25', '30',
+                                                        '35', '40',
+                                                        '45', '50', '55'],
+                                               'readOnly': True})
         self.dt = dt
 
     def get_new_value(self):
@@ -170,12 +169,11 @@ class DateEvenHourProperty(DateTimeProperty):
     """Even hour boolean property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'even_hour', 
-                                        {'title': 'Even hour',
-                                            'label': 'Even hour',
-                                            'readOnly': True,
-                                            'type': 'boolean',
-                                            '@type': 'BooleanProperty'})
+                                  'even_hour', {'title': 'Even hour',
+                                                'label': 'Even hour',
+                                                'readOnly': True,
+                                                'type': 'boolean',
+                                                '@type': 'BooleanProperty'})
         self.dt = dt
 
     def get_new_value(self):
@@ -186,11 +184,11 @@ class DateEvenMinuteProperty(DateTimeProperty):
     """Even minute boolean property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'even', {'title': 'Even minute',
-                                                'label': 'Even minute',
-                                                'readOnly': True,
-                                                'type': 'boolean',
-                                                '@type': 'BooleanProperty'})
+                                  'even', {'title': 'Even minute',
+                                           'label': 'Even minute',
+                                           'readOnly': True,
+                                           'type': 'boolean',
+                                           '@type': 'BooleanProperty'})
         self.dt = dt
 
     def get_new_value(self):
@@ -202,10 +200,10 @@ class DateWeekendProperty(DateTimeProperty):
     def __init__(self, device, dt):
         self.dt = dt
         DateTimeProperty.__init__(self, device,
-                                    'weekend', {'title': 'Weekend',
-                                                'label': 'Weekend',
-                                                'type': 'boolean',
-                                                '@type': 'BooleanProperty'})
+                                  'weekend', {'title': 'Weekend',
+                                              'label': 'Weekend',
+                                              'type': 'boolean',
+                                              '@type': 'BooleanProperty'})
 
     def get_new_value(self):
         return self.dt.is_sat_sun()
@@ -215,9 +213,9 @@ class DTDarkProperty(DateTimeProperty):
     """Dark boolean property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'dark', {'title': 'Dark', 'label': 'Dark',
-                                                'type': 'boolean',
-                                                '@type': 'BooleanProperty'})
+                                  'dark', {'title': 'Dark', 'label': 'Dark',
+                                           'type': 'boolean',
+                                           '@type': 'BooleanProperty'})
         self.dt = dt
 
     def get_new_value(self):
@@ -228,17 +226,16 @@ class DTWeekdayProperty(DateTimeProperty):
     """Weekday property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'weekday',
-                                        {'title': 'Weekday',
-                                            'label': 'Weekday',
-                                            'type': 'string',
-                                            'enum': ['Monday', 'Tuesday',
-                                                        'Wednesday',
-                                                        'Thursday',
-                                                        'Friday',
-                                                        'Saturday',
-                                                        'Sunday'],
-                                            'readOnly': False})
+                                  'weekday', {'title': 'Weekday',
+                                              'label': 'Weekday',
+                                              'type': 'string',
+                                              'enum': ['Monday', 'Tuesday',
+                                                       'Wednesday',
+                                                       'Thursday',
+                                                       'Friday',
+                                                       'Saturday',
+                                                       'Sunday'],
+                                              'readOnly': False})
         self.dt = dt
 
     def get_new_value(self):
@@ -251,14 +248,14 @@ class DTAzimuthProperty(DateTimeProperty):
     """Azimunth integer property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'azimuth', {'title': 'Azimuth',
-                                                'label': 'Azimuth',
-                                                '@type': 'LevelProperty',
-                                                'type': 'integer',
-                                                'unit': 'degree',
-                                                'readOnly': True,
-                                                'minimum': -180,
-                                                'maximum': 180})
+                                  'azimuth', {'title': 'Azimuth',
+                                              'label': 'Azimuth',
+                                              '@type': 'LevelProperty',
+                                              'type': 'integer',
+                                              'unit': 'degree',
+                                              'readOnly': True,
+                                              'minimum': -180,
+                                              'maximum': 180})
         self.dt = dt
 
     def get_new_value(self):
@@ -269,15 +266,14 @@ class DTElevationProperty(DateTimeProperty):
     """Elevation integer property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'elevation',
-                                        {'title': 'Elevation',
-                                            'label': 'Elevation',
-                                            '@type': 'LevelProperty',
-                                            'type': 'integer',
-                                            'unit': 'degree',
-                                            'readOnly': True,
-                                            'minimum': 0,
-                                            'maximum': 90})
+                                  'elevation', {'title': 'Elevation',
+                                                'label': 'Elevation',
+                                                '@type': 'LevelProperty',
+                                                'type': 'integer',
+                                                'unit': 'degree',
+                                                'readOnly': True,
+                                                'minimum': 0,
+                                                'maximum': 90})
         self.dt = dt
 
     def get_new_value(self):
@@ -288,15 +284,14 @@ class DTNextEventProperty(DateTimeProperty):
     """Next event integer property"""
     def __init__(self, device, dt):
         DateTimeProperty.__init__(self, device,
-                                    'next_event', 
-                                        {'title': 'Next event',
-                                            'label': 'Next event',
-                                            '@type': 'LevelProperty',
-                                            'type': 'integer',
-                                            'unit': 'minute',
-                                            'readOnly': True,
-                                            'minimum': 0,
-                                            'maximum': 1440})
+                                  'next_event', {'title': 'Next event',
+                                                 'label': 'Next event',
+                                                 '@type': 'LevelProperty',
+                                                 'type': 'integer',
+                                                 'unit': 'minute',
+                                                 'readOnly': True,
+                                                 'minimum': 0,
+                                                 'maximum': 1440})
         self.dt = dt
 
     def get_new_value(self):

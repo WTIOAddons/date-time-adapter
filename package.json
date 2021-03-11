@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/wfahle/date-time-adapter"
   },
+  "dependencies": {
+    "ephem": "^3.7.7.1"
+  },
   "bugs": {
     "url": "https://github.com/wfahle/date-time-adapter/issues"
   },

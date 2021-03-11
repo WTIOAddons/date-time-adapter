@@ -38,7 +38,6 @@ jobs:
           'darwin-x64',
         ]
         pair: [
-          'python:3.5',
           'python:3.6',
           'python:3.7',
           'python:3.8',
@@ -53,9 +52,6 @@ jobs:
             host-os: 'ubuntu-latest'
           - platform: 'darwin-x64'
             host-os: 'macos-latest'
-          - pair: 'python:3.5'
-            language: 'python'
-            version: '3.5'
           - pair: 'python:3.6'
             language: 'python'
             version: '3.6'

@@ -34,10 +34,10 @@ def cleanup(signum, frame):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level = 10,
-                        format = "%(filename)s:%(lineno)s " +
-                            "%(levelname)s %(message)s",
-                        stream = sys.stdout)
+    logging.basicConfig(level=10,
+                        format="%(filename)s:%(lineno)s " +
+                        "%(levelname)s %(message)s",
+                        stream=sys.stdout)
     logging.info('Starting DateTime Addon')
     if gateway_addon.API_VERSION < _API_VERSION['min'] or \
             gateway_addon.API_VERSION > _API_VERSION['max']:

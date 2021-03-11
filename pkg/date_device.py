@@ -1,4 +1,4 @@
-"""Device for DateTime adapter for Mozilla IoT Gateway."""
+"""Device for DateTime adapter for WebThings Gateway."""
 
 import logging
 import threading

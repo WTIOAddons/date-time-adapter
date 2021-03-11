@@ -9,10 +9,9 @@ import sys
 import time
 import traceback
 
-from pkg.date_adapter import DateTimeAdapter
-
-
 sys.path.append(path.join(path.dirname(path.abspath(__file__)), 'lib'))
+
+from pkg.date_adapter import DateTimeAdapter  # noqa
 
 
 _API_VERSION = {

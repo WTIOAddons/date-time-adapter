@@ -9,7 +9,7 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
-1.0.3
+1.0.7
  * Implemented cross compile steps
  * Added Year/Month/Day properties
  * Fixed bug with install on top of version 1.0.1 (config)
@@ -48,6 +48,9 @@ After upgrade to version 1.0.2 check existing rules because some properties are 
  * Weekend. Boolean on for Saturday and Sunday
  * Weekday. Enum. Monday...Sunday
  * Dark. Boolean on when it is dark outside
+ * Year. Integer, values 2000-3000
+ * Month. Integer, values 1-12
+ * Day. Integer, values 1-31
  * Hour. Integer, values 0-23
  * Minute. Integer, values 0-59. Support < and > in rule-engine
  * Even Hour. Boolean on for even hours

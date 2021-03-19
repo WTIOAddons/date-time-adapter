@@ -1,0 +1,7 @@
+*.pyc
+*.swp
+*.tgz
+*~
+lib/
+package/
+package-to-manifest.py

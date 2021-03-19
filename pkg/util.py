@@ -139,7 +139,10 @@ class DT():
     def sunrise(self):
         if self.next_sunrise + datetime.timedelta(minutes=1) < self.now():
             self.next_sunrise = self.calc_sunrise()
-            logging.info('New sunrise %s', self.next_sunrise)
+            # force recompute of next/last
+            self.minute = self.now()-datetime.timedelta(minutes=2)
+	    self.compute_nextlast()
+            logging.debug('New sunrise %s', self.next_sunrise)
         return self.next_sunrise
 
     def calc_sunset(self):
@@ -160,7 +163,10 @@ class DT():
     def sunset(self):
         if self.next_sunset + datetime.timedelta(minutes=1) < self.now():
             self.next_sunset = self.calc_sunset()
-            logging.info('New sunset %s', self.next_sunset)
+            # force recompute of next/last
+            self.minute = self.now()-datetime.timedelta(minutes=2)
+	    self.compute_nextlast()
+            logging.debug('New sunset %s', self.next_sunset)
         return self.next_sunset
 
     def to_localtime(self, dt):

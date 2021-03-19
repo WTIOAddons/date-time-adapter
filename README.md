@@ -9,6 +9,10 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
+1.1.0
+ * Moved to new repository at github.com/WTIOAddons/date-time-adapter
+ * Reduced verbosity of info messages further
+
 1.0.8
  * Implemented cross compile steps
  * Added Year/Month/Day properties
@@ -77,10 +81,10 @@ To start the fan evey second hour when it is dark and switch it of after 5 minut
 `if DateTime is dark and DateTime minute is 20 and DateTime is even_hour, turn Fan on`  
 `if DateTime minute is 25, turn Fan off`
 
-If it only for 5 minutes
+If its only for 5 minutes
 `while DateTime minutes5 is 5, turn Fan on`
 
-A motion sensor is onlyactive between 10:00--10:59 
+A motion sensor is only active between 10:00--10:59 
 `if DateTime Hour is greater than 9 and DateTime Hour is less than 11 and Motion sensor is motion, turn Light on`
 
 Open blinds 15 minutes before sunrise (configure -15 for offset mins)
@@ -95,7 +99,7 @@ Because of a bug in gateways rule enginge it will not handle rules with more tha
 If a rule is `if DateTime minute is 5 and DateTime is dark, turn Fan on` it will not work directly if the
 rule is created when it is dark. To work it must first be not dark.  
 To solve this after the rule is created go to the things page and click on the dark property in DateTime device.
-The same is valie for e.g. 'weekend'.  
+The same is valid for e.g. 'weekend'.  
 See bug https://github.com/WebThingsIO/gateway/issues/1452
 
 

@@ -25,13 +25,15 @@ class DateTimeAdapter(Adapter):
 
     def start_pairing(self, timeout):
         """  Start pairing process. """
-        logging.info('START Pairing')
+        logging.debug('START Pairing')
 
-        log_level = 10
+        log_level = 30
         if self._config.log_level == 'INFO':
             logging.getLogger().setLevel(logging.INFO)
-        else:
+	elif self._config.log_level == 'DEBUG':
             logging.getLogger().setLevel(logging.DEBUG)
+        else:
+            logging.getLogger().setLevel(logging.WARNING)
         logging.info("Log level %s", log_level)
 
         dev_id = 'DateTimeDevice'
@@ -39,40 +41,40 @@ class DateTimeAdapter(Adapter):
             self.handle_device_added(DateTimeDevice(self, dev_id,
                                                     self._config))
         else:
-            logging.info('Device: %s was already created', dev_id)
+            logging.debug('Device: %s was already created', dev_id)
         # dev_id = 'DateTimeTestDevice'
         # if self.get_device(dev_id) is None:
         #    self.handle_device_added(DateTimeTestDevice(self, dev_id,
         #                                 self._config))
         # else:
         #    logging.info('Device: %s was already created', dev_id)
-        logging.info('END Pairing')
+        logging.debug('END Pairing')
 
     def cancel_pairing(self):
         """Cancel pairing process."""
-        logging.info('cancel_pairing')
+        logging.debug('cancel_pairing')
 
     def unload(self):
         """Perform any necessary cleanup before adapter is shut down."""
-        logging.info('Start unload all devices')
+        logging.debug('Start unload all devices')
         try:
             for device_id, device in self.get_devices().items():
                 device.active_poll = False
             time.sleep(3)
             for dev_id, dev in self.get_devices().items():
-                logging.info('UNLOAD Device: %s', dev_id)
+                logging.debug('UNLOAD Device: %s', dev_id)
                 super().unload()
         except Exception as ex:
             logging.exception('Exception %s', ex)
-        logging.info('End unload all devices')
+        logging.debug('End unload all devices')
 
     def handle_device_removed(self, device):
-        logging.info('Device to be removed name: %s is_alive: %s',
+        logging.debug('Device to be removed name: %s is_alive: %s',
                      device.name, device.thread.is_alive())
         device.active_poll = False
         device.thread.join(20.0)
-        logging.info('Device id: %s is_alive: %s', device.id,
+        logging.debug('Device id: %s is_alive: %s', device.id,
                      device.thread.is_alive())
         super().handle_device_removed(device)
-        logging.info('device:' + device.name + ' is removed. Device ' +
+        logging.debug('device:' + device.name + ' is removed. Device ' +
                      device.id)

@@ -33,7 +33,7 @@ def cleanup(signum, frame):
 
 
 if __name__ == '__main__':
-    logging.basicConfig(level=10,
+    logging.basicConfig(level=30,
                         format="%(filename)s:%(lineno)s " +
                         "%(levelname)s %(message)s",
                         stream=sys.stdout)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         logging.debug('Arguments list: %s', str(sys.argv))
         signal.signal(signal.SIGINT, cleanup)
         signal.signal(signal.SIGTERM, cleanup)
-        _ADAPTER = DateTimeAdapter(verbose=True)
+        _ADAPTER = DateTimeAdapter(verbose=False)
         # Wait until proxy stops running. this indicates gateway shut down.
         while _ADAPTER.proxy_running():
             time.sleep(2)

@@ -44,7 +44,7 @@ class DTDevice(Device):
 
     def poll(self):
         """ Poll device for changes."""
-        logging.info('poll START for %s', self.name)
+        logging.debug('poll START for %s', self.name)
         ixx = 60
         while self.active_poll:
             try:
@@ -59,7 +59,7 @@ class DTDevice(Device):
                 logging.error('THREAD ERR Exception %s', ex)
                 logging.exception('Exception %s', ex)
                 continue
-        logging.info('POLL STOPPED for device: %s', self.name)
+        logging.debug('POLL STOPPED for device: %s', self.name)
 
 
 class DateTimeDevice(DTDevice):

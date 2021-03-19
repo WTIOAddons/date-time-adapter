@@ -1,8 +1,8 @@
 {
   "name": "date-time-adapter",
   "display_name": "DateTime Adapter",
-  "version": "1.0.8",
-  "description": "Date Time addon for WebThingsIO Gateway\nBecause of a bug in rule engine after adding a 'Dark' or 'Weekend' to the rule, change state for them manually. See https://github.com/wfahle/date-time-adapter",
+  "version": "1.1.0",
+  "description": "Date Time addon for WebThingsIO Gateway",
   "author": "tomasy",
   "main": "main.py",
   "keywords": [
@@ -12,14 +12,14 @@
     "date",
     "time"
   ],
-  "homepage": "https://github.com/wfahle/date-time-adapter",
+  "homepage": "https://github.com/WTIOAddons/date-time-adapter",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wfahle/date-time-adapter"
+    "url": "https://github.com/WTIOAddons/date-time-adapter"
   },
   "bugs": {
-    "url": "https://github.com/wfahle/date-time-adapter/issues"
+    "url": "https://github.com/WTIOAddons/date-time-adapter/issues"
   },
   "files": [
     "LICENSE",
@@ -51,7 +51,7 @@
       "horizon": "-0:34",
       "sunrise_offset_mins": 0,
       "sunset_offset_mins": 0,
-      "log_level": "INFO"
+      "log_level": "WARNING"
     },
     "schema": {
       "type": "object",
@@ -62,7 +62,7 @@
         "horizon",
         "sunset_offset_mins",
         "sunrise_offset_mins"
-      ],      
+      ],
       "description": "Configuration for sunset and sunrise",
       "properties": {
         "timezone": {
@@ -85,21 +85,22 @@
           "type": "number",
           "description": "Create a secondary sunset event that occurs n minutes before or after the adding actual sunset event.",
           "minimum": -60,
-          "maximum": 60          
+          "maximum": 60
         },
         "sunrise_offset_mins": {
           "type": "number",
           "description": "Create a secondary sunrise event that occurs n minutes before or after the adding actual sunset event.",
           "minimum": -60,
           "maximum": 60
-        },        
+        },
         "log_level": {
           "type": "string",
           "enum": [
+            "WARNING",
             "INFO",
             "DEBUG"
           ],
-          "description": "Log level. Use INFO as standard"
+          "description": "Log level. Use WARNING as standard"
         }
       }
     }

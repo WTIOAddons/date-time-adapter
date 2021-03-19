@@ -141,7 +141,7 @@ class DT():
             self.next_sunrise = self.calc_sunrise()
             # force recompute of next/last
             self.minute = self.now()-datetime.timedelta(minutes=2)
-	    self.compute_nextlast()
+            self.compute_nextlast()
             logging.debug('New sunrise %s', self.next_sunrise)
         return self.next_sunrise
 
@@ -165,7 +165,7 @@ class DT():
             self.next_sunset = self.calc_sunset()
             # force recompute of next/last
             self.minute = self.now()-datetime.timedelta(minutes=2)
-	    self.compute_nextlast()
+            self.compute_nextlast()
             logging.debug('New sunset %s', self.next_sunset)
         return self.next_sunset
 

@@ -30,7 +30,7 @@ class DateTimeAdapter(Adapter):
         log_level = 30
         if self._config.log_level == 'INFO':
             logging.getLogger().setLevel(logging.INFO)
-	elif self._config.log_level == 'DEBUG':
+        elif self._config.log_level == 'DEBUG':
             logging.getLogger().setLevel(logging.DEBUG)
         else:
             logging.getLogger().setLevel(logging.WARNING)
@@ -70,11 +70,11 @@ class DateTimeAdapter(Adapter):
 
     def handle_device_removed(self, device):
         logging.debug('Device to be removed name: %s is_alive: %s',
-                     device.name, device.thread.is_alive())
+                      device.name, device.thread.is_alive())
         device.active_poll = False
         device.thread.join(20.0)
         logging.debug('Device id: %s is_alive: %s', device.id,
-                     device.thread.is_alive())
+                      device.thread.is_alive())
         super().handle_device_removed(device)
         logging.debug('device:' + device.name + ' is removed. Device ' +
-                     device.id)
+                      device.id)

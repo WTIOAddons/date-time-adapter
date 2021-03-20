@@ -70,7 +70,7 @@ class DateTimeDevice(DTDevice):
         _id -- ID of this device
         """
         DTDevice.__init__(self, adapter, _id)
-        self._context = 'https://WebThings.io/schemas'
+        self._context = 'https://webthings.io/schemas'
         self._type = ['BinarySensor', 'MultiLevelSensor']
         self.dt = DT(_config.timezone, _config.lat, _config.lng,
                      _config.horizon)

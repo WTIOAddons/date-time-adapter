@@ -2,7 +2,6 @@
 
 from os import path
 import functools
-import gateway_addon
 import logging
 import signal
 import sys
@@ -14,10 +13,7 @@ sys.path.append(path.join(path.dirname(path.abspath(__file__)), 'lib'))
 from pkg.date_adapter import DateTimeAdapter  # noqa
 
 
-_API_VERSION = {
-    'min': 2,
-    'max': 2,
-}
+_DEBUG = False
 _ADAPTER = None
 
 print = functools.partial(print, flush=True)
@@ -38,19 +34,11 @@ if __name__ == '__main__':
                         "%(levelname)s %(message)s",
                         stream=sys.stdout)
     logging.info('Starting DateTime Addon')
-    if gateway_addon.API_VERSION < _API_VERSION['min'] or \
-            gateway_addon.API_VERSION > _API_VERSION['max']:
-        logging.error('Unsupported API version. ver: %s',
-                      gateway_addon.API_VERSION)
-        sys.exit(0)
 
     try:
-        logging.info('Start date-time-adapter. gateway_addon.API_VERSION: %s',
-                     gateway_addon.API_VERSION)
-        logging.debug('Arguments list: %s', str(sys.argv))
         signal.signal(signal.SIGINT, cleanup)
         signal.signal(signal.SIGTERM, cleanup)
-        _ADAPTER = DateTimeAdapter(verbose=False)
+        _ADAPTER = DateTimeAdapter(verbose=_DEBUG)
         # Wait until proxy stops running. this indicates gateway shut down.
         while _ADAPTER.proxy_running():
             time.sleep(2)

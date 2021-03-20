@@ -1,6 +1,6 @@
 # DateTime adapter
 
-DateTime adapter for WebThingsIO Gateway.
+DateTime adapter for WebThings Gateway.
 
 Purpose: Create rules where date and time is needed as input
 
@@ -105,8 +105,7 @@ See bug https://github.com/WebThingsIO/gateway/issues/1452
 
 
 ```
-sudo apt install python3-dev libnanomsg-dev
-pip install pyephem # 3.7.6.0 sunset/sunrise
-sudo pip3 install nnpy pytz
+sudo apt install python3-dev
+sudo pip3 install pytz pyephem # 3.7.6.0 sunset/sunrise
 sudo pip3 install git+https://github.com/WebThingsIO/gateway-addon-python.git
 ```

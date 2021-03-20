@@ -12,6 +12,7 @@ After upgrade to version 1.0.2 check existing rules because some properties are 
 1.1.0
  * Moved to new repository at github.com/WTIOAddons/date-time-adapter
  * Reduced verbosity of info messages further
+ * Added WARNING log level to configuration (choose for minimum logging)
 
 1.0.8
  * Implemented cross compile steps

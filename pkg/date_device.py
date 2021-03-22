@@ -178,7 +178,7 @@ class DateTimeDevice(DTDevice):
 
             if offset_sunrise is not None:
                 if self.dt.now() > offset_sunrise:
-                    self.check_send_event(self.sunrise, 'sunrise_offset')
+                    self.check_send_event(offset_sunrise, 'sunrise_offset')
                     self.sunrise_offset_active = True
 
     def check_offset_sunset(self):
@@ -193,14 +193,14 @@ class DateTimeDevice(DTDevice):
                     datetime.timedelta(minutes=self.sunset_offset_mins)
             if offset_sunset is not None:
                 if self.dt.now() > offset_sunset:
-                    self.check_send_event(self.sunset, 'sunset_offset')
+                    self.check_send_event(offset_sunset, 'sunset_offset')
                     self.sunset_offset_active = True
 
     """ Check if the sunset/sunrise time occured and if so send event """
     def check_send_event(self, next_sunset_sunrise, event_name):
         logging.info('now:%s > next:%s', self.dt.now(), next_sunset_sunrise)
         event = Event(self, event_name, event_name + ': ' +
-                      str(next_sunset_sunrise))
+                      str(self.dt.now()))
         self.event_notify(event)
         logging.info('New event ' + event_name)
 

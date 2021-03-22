@@ -23,7 +23,7 @@ pip3 install -r requirements.txt -t lib --no-binary :all: --prefix ""
 
 # Put package together
 #cp -r lib pkg LICENSE README.md package.json manifest.json *.py package/
-cp -r lib pkg LICENSE manifest.json *.py README.md package/
+cp -r lib pkg LICENSE manifest.json package.json *.py README.md package/
 find package -type f -name '*.pyc' -delete
 find package -type d -empty -delete
 

@@ -9,9 +9,8 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
-1.1.2
+1.1.3
  * Event logs were incorrect for new offset events - corrected
- * Got rid of extraneous package.json
 
 1.1.0
  * Moved to new repository at github.com/WTIOAddons/date-time-adapter

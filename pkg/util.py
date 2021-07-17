@@ -129,7 +129,7 @@ class DT():
                      observer_today.date, sunrise, sunrise_local)
         logging.debug('DTSRISE lat: %s lng: %s observer_today: %s',
                       self.lat, self.lng, observer_today)
-        observer_today.date = ephem.Date(observer_today.date - 24*ephem.hour)
+        observer_today.date = ephem.Date(observer_today.date - 23*ephem.hour)
         sunrise = observer_today.next_rising(ephem.Sun())
         self.last_sunrise = self.to_localtime(sunrise.datetime())
         logging.debug('LAST_SUNRISE old.utc: %s sunrise: %s last_sunrise: %s',
@@ -153,7 +153,7 @@ class DT():
                      observer_today.date, sunset, sunset_local)
         logging.debug('DTSET lat: %s lng: %s observer_today: %s',
                       self.lat, self.lng, observer_today)
-        observer_today.date = ephem.Date(observer_today.date - 24*ephem.hour)
+        observer_today.date = ephem.Date(observer_today.date - 23*ephem.hour)
         sunset = observer_today.next_setting(ephem.Sun())
         self.last_sunset = self.to_localtime(sunset.datetime())
         logging.debug('LAST_SUNSET old.utc: %s sunset: %s last_sunset: %s',

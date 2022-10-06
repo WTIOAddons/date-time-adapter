@@ -24,7 +24,7 @@ class Config(Database):
             self.timezone = config['timezone']
             self.lat = config['lat']
             self.lng = config['lng']
-            self.searchReplaceComas()  # SEARCH AND REPLACING COMA FOR DOT
+            self.searchReplaceComas(self, config)  # SEARCH AND REPLACING COMA FOR DOT
             self.horizon = config['horizon']
             self.log_level = config['log_level']
             self.sunset_offset_mins = 0
@@ -34,7 +34,7 @@ class Config(Database):
         except Exception as ex:
             logging.exception('Strange config:' + str(ex), config)
     
-    def searchReplaceComas():
+    def searchReplaceComas(self, config):
         # search and replace coma for dot in lat
         self.lat.replace(',', '.')
         config['lat'] = self.lat

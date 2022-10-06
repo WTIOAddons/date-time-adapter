@@ -1,5 +1,5 @@
 {
-  "author": "tomasy",
+  "author": "tomasy-wfahle",
   "description": "Date Time addon for WebThings Gateway",
   "gateway_specific_settings": {
     "webthings": {
@@ -77,5 +77,5 @@
     }
   },
   "short_name": "Date & Time",
-  "version": "1.1.5"
+  "version": "1.1.6"
 }

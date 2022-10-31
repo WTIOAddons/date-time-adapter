@@ -9,6 +9,9 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
+1.1.7
+ * Fixed bug that didn't accept international versions of lat/long
+
 1.1.4
  * Fixed bug when days are getting shorter in sunset_offset
 
@@ -99,15 +102,6 @@ Open blinds 15 minutes before sunrise (configure -15 for offset mins)
 
 Close blinds because the sun hits your eye like a big pizza pie (look at controller for az/el parameters when blinded)
 `if DateTime Azimuth is greater than -112, DateTime Azimuth is less than -95, DateTime Elevation is less than 7, DateTime Elevation is greater than 2, set Blind-1 Level to 50`
-
-## Bugs
-### Bug 1.
-Because of a bug in gateways rule enginge it will not handle rules with more than one properties correctly.
-If a rule is `if DateTime minute is 5 and DateTime is dark, turn Fan on` it will not work directly if the
-rule is created when it is dark. To work it must first be not dark.  
-To solve this after the rule is created go to the things page and click on the dark property in DateTime device.
-The same is valid for e.g. 'weekend'.  
-See bug https://github.com/WebThingsIO/gateway/issues/1452
 
 
 ```

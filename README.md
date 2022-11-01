@@ -9,7 +9,7 @@ After upgrade the addon the pages must be reloaded before the new attributes are
 After upgrade to version 1.0.2 check existing rules because some properties are changed.
 
 ## Release notes ##
-1.1.8
+1.1.9
  * Fixed bug that didn't accept international versions of lat/long
 
 1.1.4

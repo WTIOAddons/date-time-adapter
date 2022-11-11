@@ -24,7 +24,7 @@ class Config(Database):
             self.timezone = config['timezone']
             self.lat = config['lat']
             self.lng = config['lng']
-            self.searchReplaceComas(self, config)  # Replace comma w dot
+            self.searchReplaceComas(config)  # Replace comma w dot
             self.horizon = config['horizon']
             self.log_level = config['log_level']
             self.sunset_offset_mins = 0

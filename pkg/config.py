@@ -36,10 +36,10 @@ class Config(Database):
 
     def searchReplaceComas(self, config):
         # search and replace coma for dot in lat
-        self.lat.replace(',', '.')
+        self.lat = self.lat.replace(',', '.')
         config['lat'] = self.lat
         # search and replace coma for dot in lng
-        self.lng.replace(',', '.')
+        self.lng = self.lng.replace(',', '.')
         config['lng'] = self.lng
         # save change to DB
         self.save_config(config)

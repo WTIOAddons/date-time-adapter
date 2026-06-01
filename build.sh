@@ -51,7 +51,31 @@ function build_native() {
 }
 
 function build_cross_compiled() {
-  docker run --rm -t -v $PWD:/build webthingsio/toolchain-${ADDON_ARCH}-${LANGUAGE_NAME}-${LANGUAGE_VERSION} bash -c "cd /build; ADDON_ARCH=${ADDON_ARCH} ./package.sh"
+  # WebThingsIO only publishes toolchain images up to Python 3.9. For newer
+  # versions there is no webthingsio/toolchain-* image, so run the official
+  # multi-arch python image under qemu emulation instead. Dependencies install
+  # from prebuilt wheels, so no cross-compilation toolchain is required.
+  case "${LANGUAGE_VERSION}" in
+    3.7 | 3.8 | 3.9)
+      docker run --rm -t -v $PWD:/build \
+        webthingsio/toolchain-${ADDON_ARCH}-${LANGUAGE_NAME}-${LANGUAGE_VERSION} \
+        bash -c "cd /build; ADDON_ARCH=${ADDON_ARCH} ./package.sh"
+      ;;
+    *)
+      case "${ADDON_ARCH}" in
+        linux-x64)   DOCKER_PLATFORM="linux/amd64" ;;
+        linux-arm64) DOCKER_PLATFORM="linux/arm64" ;;
+        linux-arm)   DOCKER_PLATFORM="linux/arm/v7" ;;
+        *)
+          echo "Unsupported architecture for ${LANGUAGE_NAME} ${LANGUAGE_VERSION}: ${ADDON_ARCH}"
+          exit 1
+          ;;
+      esac
+      docker run --rm -t --platform "${DOCKER_PLATFORM}" -v $PWD:/build \
+        "${LANGUAGE_NAME}:${LANGUAGE_VERSION}" \
+        bash -c "cd /build; ADDON_ARCH=${ADDON_ARCH} ./package.sh"
+      ;;
+  esac
 }
 
 case "${ADDON_ARCH}" in

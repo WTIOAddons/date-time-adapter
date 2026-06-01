@@ -18,12 +18,11 @@ rm -rf *.tgz package SHA256SUMS lib
 # Prep new package
 mkdir lib package
 
-# Pull down Python dependencies
-if [ "$PYTHON_VERSION" = "3.7" ]; then
+# Pull down Python dependencies.
+# Install from prebuilt wheels in all cases (no --no-binary), so C-extension
+# deps like ephem are not compiled from source. gateway_addon is pure-Python
+# and is built from its git source automatically.
 pip3 install -r requirements.txt -t lib --prefix ""
-else
-pip3 install -r requirements.txt -t lib --no-binary :all: --prefix ""
-fi
 
 # Put package together
 #cp -r lib pkg LICENSE README.md package.json manifest.json *.py package/
